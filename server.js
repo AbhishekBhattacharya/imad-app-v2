@@ -1,5 +1,5 @@
 //imported software packages
-var express = require('express');//library used to create the web server
+var express = require('express');//library used to create the web server i.e express framework
 var morgan = require('morgan');//library used to output logs of our server
 var path = require('path');
 
@@ -8,7 +8,7 @@ app.use(morgan('combined'));
 
 //javascript object
 var articles = {
-    articleOne: {
+    'article-one': {
     title : 'Article One | Abhishek Bhattacharya',
     heading : 'Article One',
     date: '12 Feb 2017',
@@ -25,7 +25,7 @@ var articles = {
         This is the content for my first article.
         My IMAD's first html file.
     </p>`},
-    articleTwo: {
+    'article-two': {
         title : 'Article Two | Abhishek Bhattacharya',
     heading : 'Article Two',
     date: '12 Feb 2017',
@@ -43,7 +43,7 @@ var articles = {
         My IMAD's second html file.
     </p>`
     },
-    articlethree: {
+    'article-three': {
         title : 'Article Three | Abhishek Bhattacharya',
     heading : 'Article Three',
     date: '12 Feb 2017',
@@ -110,19 +110,14 @@ app.get('/', function (req, res) {
 });
 
 
-app.get('/article-one', function (req, res) {
-   res.send(createTemplate(articleOne));
+app.get('/:articleName', function (req, res) {
+    //articleName == article-one
+    //articles[articleName] == {} content object for article one
+    var articleName = req.params.articleName;
+   res.send(createTemplate(articles[articleName]));
 });
 
 
-app.get('/article-two', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
-});
-
-
-app.get('/article-three', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
-});
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
