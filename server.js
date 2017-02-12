@@ -10,8 +10,8 @@ app.use(morgan('combined'));
 var articleOne = {
     title = 'Article One | Abhishek Bhattacharya',
     heading = 'Article One',
-    date= '12 Feb 2017'
-    content = `<p>
+    date= '12 Feb 2017',
+    content =`<p>
                 This is the content for my first article.
                 My IMAD's first html file.
             </p>
@@ -23,7 +23,10 @@ var articleOne = {
                 This is the content for my first article.
                 My IMAD's first html file.
             </p>`
-};// backquote to use multiple lines of javascript in content
+            
+    }; // backquote to use multiple lines of javascript in content
+
+
 
 function createTemplate(data){
 var title = data.title;
