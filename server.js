@@ -7,7 +7,8 @@ var app = express();
 app.use(morgan('combined'));
 
 //javascript object
-var articleOne = {
+var articles = {
+    articleOne: {
     title : 'Article One | Abhishek Bhattacharya',
     heading : 'Article One',
     date: '12 Feb 2017',
@@ -23,7 +24,43 @@ var articleOne = {
     <p>
         This is the content for my first article.
         My IMAD's first html file.
+    </p>`},
+    articleTwo: {
+        title : 'Article Two | Abhishek Bhattacharya',
+    heading : 'Article Two',
+    date: '12 Feb 2017',
+    content :`
+    <p>
+        This is the content for my second article.
+        My IMAD's second html file.
+    </p>
+    <p>
+        This is the content for my second article.
+        My IMAD's second html file.
+    </p>
+    <p>
+        This is the content for my second article.
+        My IMAD's second html file.
     </p>`
+    },
+    articlethree: {
+        title : 'Article Three | Abhishek Bhattacharya',
+    heading : 'Article Three',
+    date: '12 Feb 2017',
+    content :`
+    <p>
+        This is the content for my third article.
+        My IMAD's third html file.
+    </p>
+    <p>
+        This is the content for my third article.
+        My IMAD's third html file.
+    </p>
+    <p>
+        This is the content for my third article.
+        My IMAD's third html file.
+    </p>`
+    }
 }; // backquote to use multiple lines of javascript in content
 
 
