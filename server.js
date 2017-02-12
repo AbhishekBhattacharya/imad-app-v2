@@ -11,20 +11,20 @@ var articleOne = {
     title : 'Article One | Abhishek Bhattacharya',
     heading : 'Article One',
     date: '12 Feb 2017',
-    content :`<p>
-                This is the content for my first article.
-                My IMAD's first html file.
-            </p>
-            <p>
-                This is the content for my first article.
-                My IMAD's first html file.
-            </p>
-            <p>
-                This is the content for my first article.
-                My IMAD's first html file.
-            </p>`
-            
-    }; // backquote to use multiple lines of javascript in content
+    content :`
+    <p>
+        This is the content for my first article.
+        My IMAD's first html file.
+    </p>
+    <p>
+        This is the content for my first article.
+        My IMAD's first html file.
+    </p>
+    <p>
+        This is the content for my first article.
+        My IMAD's first html file.
+    </p>`
+}; // backquote to use multiple lines of javascript in content
 
 
 
