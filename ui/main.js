@@ -9,8 +9,12 @@ var element = document.getElementById('main-text'); // only one element of index
 element.innerHTML = "New Value";
 
 //Move the image 
-var photo = document.getElementById('madi');
- photo.onclick = function () {
-   // image.style.marginLeft = "100px";
+var img = document.getElementById('madi');
+function moveRight() {
+    marginLeft = marginLeft + 10 ;
+    img.style.marginLeft = marginLeft + "px";
+}
+ img.onclick = function () {
+   // img.style.marginLeft = "100px";
    var interval = setInterval(moveRight,100);//every 100 ms , apply the move right function
 };
