@@ -15,7 +15,7 @@ function moveRight() {
     marginLeft = marginLeft + 1 ;
     img.style.marginLeft = marginLeft + "px";
 }
- img.onclick = function () {
+ img.onclick=function(){
    img.style.marginLeft = "100px";
    var interval = setInterval(moveRight,50);//every 50 ms , apply the move right function
 };
