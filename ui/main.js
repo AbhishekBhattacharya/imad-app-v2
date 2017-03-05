@@ -1,7 +1,7 @@
 //Client Side Javascript
 
 
-console.log('Loaded!'); //prints Loaded! on the console.. see inspect element 
+//console.log('Loaded!'); //prints Loaded! on the console.. see inspect element 
 // can write Javascript code directly in Chrome Dev Tools(inspect element)
 
 //Change the text of the main-text div
@@ -20,3 +20,19 @@ console.log('Loaded!'); //prints Loaded! on the console.. see inspect element
    //var interval = setInterval(moveRight,50);//every 50 ms , apply the move right function
      
 //};
+
+
+//Counter Code
+var button = document.getElementById('counter');
+var counter = 0;
+button.onclick = function() {
+  //Make  a request to the counter endpoint
+  
+  //Capture the response and store it  in a variable\
+  
+  //Render  the variable in the correct span
+  counter = counter + 1;
+  span.getElementById('count');
+  span.innerHTML = counter.toString();
+  
+};
