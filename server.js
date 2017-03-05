@@ -109,6 +109,12 @@ app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname, 'ui', 'index.html'));//when url path '/' is requested , then picks up ui/index.html and sends it contents ..these are called url handlers
 });
 
+var counter = 0;
+app.get('/counter', function(req,res) {
+    counter = counter + 1;
+    res.send(counter.toString()); //only send string as a response
+});
+
 
 app.get('/:articleName', function (req, res) {
     //articleName == article-one
