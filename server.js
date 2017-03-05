@@ -112,7 +112,7 @@ app.get('/', function (req, res) {
 var counter = 0;
 app.get('/counter', function(req,res) {
     counter = counter + 1;
-    res.send(counter.toString()); //only send string as a response
+    res.send(counter.toString()); //only allowed to send string as a response
 });
 
 
