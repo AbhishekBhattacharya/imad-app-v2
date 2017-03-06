@@ -52,21 +52,41 @@ button.onclick = function () {
 };
 
 //Submit names
-var nameInput = document.getElementById('name');
-var name = nameInput.value;
+var nameInput = document.getElementById('name');  //select input box
+var name = nameInput.value;  //extract the value from the input box
 var submit = document.getElementById('submit_btn');
 submit.onclick = function () {
   //Make  a request to the server and send the name
+   var request = new XMLHttpRequest();
   
-  //Capture a list of names and render it as a list
-  var names = ['name1','name2','name3','name4'];
-  var list = '';  // convert list to an HTML string
-  for (var i=0; i< names.length; i++){
-      list += '<li>' + names[i] + '</li>';
-  }
-  //Insert our HTML to the unordered list
-  var ul = document.getElementById('namelist');
-  ul.innerHTML = list;
+  //Capture the response and store it  in a variable\
+  request.onreadystatechange = function () {
+   if (request.readyState === XMLHttpRequest.DONE){
+       //Take some action
+       if (request.status === 200){ 
+           //req succesfully completed, so extract the req
+           //Capture a list of names and render it as a list
+          var names = request.responseText; //its a string
+          names = JSON.parse(names); 
+          var list = '';  // convert list to an HTML string via loop
+          for (var i=0; i< names.length; i++){
+              list += '<li>' + names[i] + '</li>';
+          }
+          //Insert our HTML to the unordered list
+          var ul = document.getElementById('namelist');
+          ul.innerHTML = list;
+                
+       }
+       
+   }   
+   // if statement no executed i.e request not done
+   
+  };
+ 
+ // Make the request
+    request.open('GET',"http://abhishekbhattacharya.imad.hasura-app.io/submit-name?name=" + name,true);
+    request.send(null);
+ 
   
   
 };
