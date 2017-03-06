@@ -115,6 +115,15 @@ app.get('/counter', function(req,res) {
     res.send(counter.toString()); //only allowed to send string as a response
 });
 
+var names = [];
+app.get('/submit-name', function(req,res){ //URL: /submit-name?name=xyz
+    //Get the name from the request object and extract it, concatenate to the overall list and then return that response
+   // var name = req.params.name;
+    var name = req.query.name;  // for the URL request
+    names.push(name);
+    //JSON :Javascript Object Notation - a way of converting complex javascript objects to strings
+    res.send(JSON.stringify(names));
+});
 
 app.get('/:articleName', function (req, res) {
     //articleName == article-one
@@ -137,15 +146,6 @@ app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
 
-var names = [];
-app.get('/submit-name', function(req,res){ //URL: /submit-name?name=xyz
-    //Get the name from the request object and extract it, concatenate to the overall list and then return that response
-   // var name = req.params.name;
-    var name = req.query.name;  // for the URL request
-    names.push(name);
-    //JSON :Javascript Object Notation - a way of converting complex javascript objects to strings
-    res.send(JSON.stringify(names));
-});
 
 var port = 8080; // Use 8080 for local development because you might already have apache running on 80
 app.listen(8080, function () {
