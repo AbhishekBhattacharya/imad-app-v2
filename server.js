@@ -138,10 +138,10 @@ app.get('/ui/madi.png', function (req, res) {
 });
 
 var names = [];
-app.get('/submit-name/:name', function(req,res){
+app.get('/submit-name', function(req,res){ //URL: /submit-name?name=xyz
     //Get the name from the request object and extract it, concatenate to the overall list and then return that response
-    var name = req.params.name;
-    
+   // var name = req.params.name;
+    var name = req.query.name;  // for the URL request
     names.push(name);
     //JSON :Javascript Object Notation - a way of converting complex javascript objects to strings
     res.send(JSON.stringify(names));
