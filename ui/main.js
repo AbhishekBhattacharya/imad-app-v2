@@ -61,8 +61,8 @@ submit.onclick = function () {
   //Capture a list of names and render it as a list
   var names = ['name1','name2','name3','name4'];
   var list = '';  // convert list to an HTML string
-  for (var i=0;i<names.length;i++){
-      list + = '<li>' + names[i] + '</li>';
+  for (var i=0; i< names.length; i++){
+      list += '<li>' + names[i] + '</li>';
   }
   //Insert our HTML to the unordered list
   var ul = document.getElementById('namelist');
