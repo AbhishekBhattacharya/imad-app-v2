@@ -51,9 +51,7 @@ button.onclick = function () {
  
 };
 
-//Submit names
-var nameInput = document.getElementById('name');  //select input box
-var name = nameInput.value;  //extract the value from the input box
+
 var submit = document.getElementById('submit_btn');
 submit.onclick = function () {
   //Make  a request to the server and send the name
@@ -83,7 +81,10 @@ submit.onclick = function () {
    
   };
  
- // Make the request
+     // Make the request
+     //Submit names
+    var nameInput = document.getElementById('name');  //select input box
+    var name = nameInput.value;  //extract the value from the input box
     request.open('GET',"http://abhishekbhattacharya.imad.hasura-app.io/submit-name?name=" + name,true);
     request.send(null);
  
