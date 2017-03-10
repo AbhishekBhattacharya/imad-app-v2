@@ -129,7 +129,7 @@ var pool = new Pool(config);
 
 
 //Endpoint for connecting to the database
-app.get('/', function (req, res) {
+app.get('/test-db', function (req, res) {
    //make a select request
    //return a response with the results
    pool.query('SELECT * FROM TEST', function (err,result){
@@ -160,12 +160,12 @@ app.get('/submit-name', function(req,res){ //URL: /submit-name?name=xyz
     res.send(JSON.stringify(names));
 });
 
-//app.get('/:articleName', function (req, res) {
+app.get('/:articleName', function (req, res) {
     //articleName == article-one
     //articles[articleName] == {} content object for article one
-//    var articleName = req.params.articleName;
-//   res.send(createTemplate(articles[articleName]));
-//});
+    var articleName = req.params.articleName;
+   res.send(createTemplate(articles[articleName]));
+});
 
 
 
