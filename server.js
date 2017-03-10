@@ -2,6 +2,19 @@
 var express = require('express');//library used to create the web server i.e express framework
 var morgan = require('morgan');//library used to output logs of our server
 var path = require('path');
+var Pool = require('pg').Pool; //DB Pool
+
+ //DB Configuration
+ var config = {
+  user: 'abhishekbhattacharya',
+  database: 'abhishekbhattacharya',
+  host: 'http://db.imad.hasura-app.io', 
+  port: '5432',
+  password: process.env.DB_PASSWORD  //use the environment variable that is available called 'DB_PASSWORD' for secure password
+};
+
+
+
 
 var app = express();
 app.use(morgan('combined'));
@@ -109,11 +122,20 @@ app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname, 'ui', 'index.html'));//when url path '/' is requested , then picks up ui/index.html and sends it contents ..these are called url handlers
 });
 
+
+//Endpoint for connecting to the database
+app.get('/', function (req, res) {
+   //make a select request
+   //return a response with the results
+});
+
+
 var counter = 0;
 app.get('/counter', function(req,res) {
     counter = counter + 1;
     res.send(counter.toString()); //only allowed to send string as a response
 });
+
 
 var names = [];
 app.get('/submit-name', function(req,res){ //URL: /submit-name?name=xyz
