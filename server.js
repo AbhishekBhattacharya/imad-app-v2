@@ -137,7 +137,7 @@ app.get('/test-db', function (req, res) {
            res.status(500).send(err.toString());
        }
        else {
-           res.send(JSON.stringify(result));  //send the result back as a JSON string
+           res.send(JSON.stringify(result.rows));  //send the result back as a JSON string 'result.rows for array of objects
        }
    });
 });
