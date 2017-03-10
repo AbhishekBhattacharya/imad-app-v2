@@ -123,10 +123,23 @@ app.get('/', function (req, res) {
 });
 
 
+// create the pool somewhere globally so its lifetime (for the database)
+// lasts for as long as your app is running
+var pool = new Pool(config);
+
+
 //Endpoint for connecting to the database
 app.get('/', function (req, res) {
    //make a select request
    //return a response with the results
+   pool.query('SELECT * FROM TEST', function (err,result){
+       if (err){//if error occurs , send status 500 error mesaage
+           res.status(500).send(err.toString());
+       }
+       else {
+           res.send(JSON.stringify(result));  //send the result back as a JSON string
+       }
+   });
 });
 
 
