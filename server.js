@@ -39,24 +39,24 @@ app.use(morgan('combined'));
         My IMAD's first html file.
     </p>`},
 //    'article-two': {
-       title : 'Article Two | Abhishek Bhattacharya',
-    heading : 'Article Two',
-    date: '12 Feb 2017',
-    content :`
-    <p>
-        This is the content for my second article.
-        My IMAD's second html file.
-    </p>
-    <p>
-        This is the content for my second article.
-        My IMAD's second html file.
-    </p>
-    <p>
-        This is the content for my second article.
-        My IMAD's second html file.
-    </p>`
-    },
-    'article-three': {
+//       title : 'Article Two | Abhishek Bhattacharya',
+ //   heading : 'Article Two',
+ //   date: '12 Feb 2017',
+ //   content :`
+ //   <p>
+ //       This is the content for my second article.
+  //      My IMAD's second html file.
+//    </p>
+  //  <p>
+//        This is the content for my second article.
+ //       My IMAD's second html file.
+ //   </p>
+  //  <p>
+//        This is the content for my second article.
+ //       My IMAD's second html file.
+  //  </p>`
+//    },
+ //   'article-three': {
         title : 'Article Three | Abhishek Bhattacharya',
     heading : 'Article Three',
     date: '12 Feb 2017',
