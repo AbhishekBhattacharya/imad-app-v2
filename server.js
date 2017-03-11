@@ -21,7 +21,7 @@ app.use(morgan('combined'));
 
 //javascript object
 // (taken from DB) var articles = {
-    'article-one': {
+//    'article-one': {
     title : 'Article One | Abhishek Bhattacharya',
     heading : 'Article One',
     date: '12 Feb 2017',
@@ -38,8 +38,8 @@ app.use(morgan('combined'));
         This is the content for my first article.
         My IMAD's first html file.
     </p>`},
-    'article-two': {
-        title : 'Article Two | Abhishek Bhattacharya',
+//    'article-two': {
+       title : 'Article Two | Abhishek Bhattacharya',
     heading : 'Article Two',
     date: '12 Feb 2017',
     content :`
