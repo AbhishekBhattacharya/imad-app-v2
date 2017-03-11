@@ -19,62 +19,6 @@ var Pool = require('pg').Pool; //DB Pool
 var app = express();
 app.use(morgan('combined'));
 
-//javascript object
-// (taken from DB) var articles = {
-//    'article-one': {
- //   title : 'Article One | Abhishek Bhattacharya',
- //   heading : 'Article One',
-  //  date: '12 Feb 2017',
-//    content :`
- //   <p>
-  //      This is the content for my first article.
-//        My IMAD's first html file.
- //   </p>
-  //  <p>
-//        This is the content for my first article.
- //       My IMAD's first html file.
-  //  </p>
-//    <p>
- //       This is the content for my first article.
-  //      My IMAD's first html file.
-//    </p>`},
-//    'article-two': {
-//       title : 'Article Two | Abhishek Bhattacharya',
- //   heading : 'Article Two',
- //   date: '12 Feb 2017',
- //   content :`
- //   <p>
- //       This is the content for my second article.
-  //      My IMAD's second html file.
-//    </p>
-  //  <p>
-//        This is the content for my second article.
- //       My IMAD's second html file.
- //   </p>
-  //  <p>
-//        This is the content for my second article.
- //       My IMAD's second html file.
-  //  </p>`
-//    },
- //   'article-three': {
-   //     title : 'Article Three | Abhishek Bhattacharya',
-//    heading : 'Article Three',
- //   date: '12 Feb 2017',
-  //  content :`
-//    <p>
- //       This is the content for my third article.
-  //      My IMAD's third html file.
-//    </p>
- //   <p>
-    //    This is the content for my third article.
-    //    My IMAD's third html file.
-//    </p>
-  //  <p>
-    //    This is the content for my third article.
-     //   My IMAD's third html file.
-    //</p>`
-    //}
-}; // backquote to use multiple lines of javascript in content
 
 
 
