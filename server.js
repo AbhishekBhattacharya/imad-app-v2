@@ -20,7 +20,7 @@ var app = express();
 app.use(morgan('combined'));
 
 //javascript object
-var articles = {
+// (taken from DB) var articles = {
     'article-one': {
     title : 'Article One | Abhishek Bhattacharya',
     heading : 'Article One',
