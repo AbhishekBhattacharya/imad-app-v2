@@ -78,6 +78,7 @@ function hash(input,salt) {//read crypto doccumentation in nodejs for info
     //'password'-> sdjgsdcfihsc64sdvfsf4cs6v6w4sdw4cf6acf4  // can be looked up by hackers easily
     //Thus use salting for a completely different hash value
     //'password-this-is-some-random-string'-> 355sdfwsdfwe6854f6w4ef6as4dasd684f6c84s --no way to hack it as its random!! :)
+    //further hashed 10k times for better protection
     
        
        
