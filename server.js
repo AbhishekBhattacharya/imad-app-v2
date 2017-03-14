@@ -4,6 +4,7 @@ var morgan = require('morgan');//library used to output logs of our server
 var path = require('path');
 var Pool = require('pg').Pool; //DB Pool
 var crypto = require('crypto'); //Library of NodeJs For Hashing
+var bodyParser = require('body-parser'); //for GETTING username, password as JSON
 
  //DB Configuration
  var config = {
@@ -94,7 +95,7 @@ app.get('/hash/:input', function (req, res){
 //endpoint to create user
 app.post('/create-user', function (req, res) {//post request as get request is not recommended for getting raw username and password
    //takes username,password and creates entry in the user table 
-   //assume username ansd password as JSON string -- done using body parser in express framework 
+   //assume username ansd password as JSON string -- done using body parser in express framework in header files
    var username = req.body.username;
    var password = req.body.password;
    
