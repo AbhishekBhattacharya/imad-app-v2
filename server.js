@@ -73,6 +73,14 @@ function hash(input,salt) {//read crypto doccumentation in nodejs for info
     var hashed = crypto.pbkdf2Sync(input,salt,10000,512,'sha512');//takes input,appends the value of salt and applies hash function 10k times result ids a 512 byte value using sha512 coding 
     return hashed.toString('hex');   //convert bytes to string using hexadecimal encoding
        
+       
+    //algorithm :md5 
+    //'password'-> sdjgsdcfihsc64sdvfsf4cs6v6w4sdw4cf6acf4  // can be looked up by hackers easily
+    //Thus use salting for a completely different hash value
+    //'password-this-is-some-random-string'-> 355sdfwsdfwe6854f6w4ef6as4dasd684f6c84s --no way to hack it as its random!! :)
+    
+       
+       
 }
 
 
