@@ -71,7 +71,7 @@ app.get('/', function (req, res) {
 
 function hash(input,salt) {//read crypto doccumentation in nodejs for info
     var hashed = crypto.pbkdf2Sync(input,salt,10000,512,'sha512');//takes input,appends the value of salt and applies hash function 10k times result ids a 512 byte value using sha512 coding 
-    return ['pbkdf2Sync','10000',salt,hashed.toString('hex')].join('$');   //convert bytes to string using hexadecimal encoding
+    return ['pbkdf2Sync','10000',salt,hashed.toString('hex')].join('$');   //convert bytes to string using hexadecimal encoding , even if we store the algoname , hacker cannot recognize the original password string
        
        
     //algorithm :md5 
