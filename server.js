@@ -3,6 +3,7 @@ var express = require('express');//library used to create the web server i.e exp
 var morgan = require('morgan');//library used to output logs of our server
 var path = require('path');
 var Pool = require('pg').Pool; //DB Pool
+var crypto = require('crypto'); //Library of NodeJs For Hashing
 
  //DB Configuration
  var config = {
@@ -65,6 +66,26 @@ return htmlTemplate;
 app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname, 'ui', 'index.html'));//when url path '/' is requested , then picks up ui/index.html and sends it contents ..these are called url handlers
 });
+
+//hashing
+
+function hash(input) {
+    var hashed = crypto.pbkdf2Sync();
+}
+
+
+//enndpoint for hash
+app.get('/hash/:input', function (req, res){
+   var hashedString = hash(req.params.input);
+   res.send(hashedString);
+});
+    
+
+
+
+
+
+
 
 
 // create the pool somewhere globally so its lifetime (for the database)
