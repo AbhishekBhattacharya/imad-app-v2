@@ -69,8 +69,8 @@ app.get('/', function (req, res) {
 
 //hashing
 
-function hash(input,salt) {
-    var hashed = crypto.pbkdf2Sync(input,salt,10000,512,'sha512'); //read crypto doccumentation in nodejs for info
+function hash(input,salt) {//read crypto doccumentation in nodejs for info
+    var hashed = crypto.pbkdf2Sync(input,salt,10000,512,'sha512');//takes input,appends the value of salt and applies hash function 10k times result ids a 512 byte value using sha512 coding 
     return hashed.toString('hex');   //convert bytes to string using hexadecimal encoding
        
 }
