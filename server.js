@@ -69,14 +69,16 @@ app.get('/', function (req, res) {
 
 //hashing
 
-function hash(input) {
-    var hashed = crypto.pbkdf2Sync();
+function hash(input,salt) {
+    var hashed = crypto.pbkdf2Sync(inpur,salt,10000,512,'sha512'); //read crypto doccumentation in nodejs for info
+    return hashed.toString('hex');   //convert bytes to string using hexadecimal encoding
+       
 }
 
 
 //enndpoint for hash
 app.get('/hash/:input', function (req, res){
-   var hashedString = hash(req.params.input);
+   var hashedString = hash(req.params.input,'this-is-some-random-string');
    res.send(hashedString);
 });
     
