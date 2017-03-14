@@ -71,7 +71,7 @@ app.get('/', function (req, res) {
 
 function hash(input,salt) {//read crypto doccumentation in nodejs for info
     var hashed = crypto.pbkdf2Sync(input,salt,10000,512,'sha512');//takes input,appends the value of salt and applies hash function 10k times result ids a 512 byte value using sha512 coding 
-    return hashed.toString('hex');   //convert bytes to string using hexadecimal encoding
+    return ['pbkdf2Sync','10000',salt,hashed.toString('hex')].join('$');   //convert bytes to string using hexadecimal encoding
        
        
     //algorithm :md5 
@@ -79,6 +79,8 @@ function hash(input,salt) {//read crypto doccumentation in nodejs for info
     //Thus use salting for a completely different hash value
     //'password-this-is-some-random-string'-> 355sdfwsdfwe6854f6w4ef6as4dasd684f6c84s --no way to hack it as its random!! :)
     //further hashed 10k times for better protection
+    //thus
+    //'password'-->'password-this-is-a-salt'--> <hash> -> <hash> X 10k times
     
        
        
