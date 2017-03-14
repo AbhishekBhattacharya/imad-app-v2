@@ -96,10 +96,11 @@ app.get('/hash/:input', function (req, res){
 app.post('/create-user', function (req, res) {//post request as get request is not recommended for getting raw username and password
    //takes username,password and creates entry in the user table 
    //assume username ansd password as JSON string -- done using body parser in express framework in header files
+   //{"username":"abhishekbhattacharya" , "password":"password"}
    var username = req.body.username;
    var password = req.body.password;
    
-   var salt = crypto.getRandomBytes(128).toString('hex'); //salting 
+   var salt = crypto.RandomBytes(128).toString('hex'); //salting 
    var dbString = hash(password,salt);  //hashed password
    pool.query('INSERT INTO "user" (username,password) VALUES ($1,$2)',[dbString,username],function (err,result){
        if (err){//if error occurs , send status 500 error mesaage
