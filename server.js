@@ -82,8 +82,6 @@ function hash(input,salt) {//read crypto doccumentation in nodejs for info
     //thus
     //'password'-->'password-this-is-a-salt'--> <hash> -> <hash> X 10k times
     
-       
-       
 }
 
 
@@ -93,7 +91,21 @@ app.get('/hash/:input', function (req, res){
    res.send(hashedString);
 });
     
-
+//endpoint to create user
+app.get('/create-user', function (req, res) {
+   //takes username,password and creates entry in the user table 
+   var salt = crypto.getRandomBytes(128).toString('hex'); //salting 
+   var dbString = hash(password,salt);  //hashed password
+   pool.query('INSERT INTO "user" (username,password) VALUES ($1,$2)',[dbString,username],function (err,result){
+       if (err){//if error occurs , send status 500 error mesaage
+           res.status(500).send(err.toString());
+       }
+       else {
+           res.send('Username succesfully created:' + username);
+       } 
+   });
+   
+});
 
 
 
