@@ -70,7 +70,7 @@ app.get('/', function (req, res) {
 //hashing
 
 function hash(input,salt) {
-    var hashed = crypto.pbkdf2Sync(inpur,salt,10000,512,'sha512'); //read crypto doccumentation in nodejs for info
+    var hashed = crypto.pbkdf2Sync(input,salt,10000,512,'sha512'); //read crypto doccumentation in nodejs for info
     return hashed.toString('hex');   //convert bytes to string using hexadecimal encoding
        
 }
