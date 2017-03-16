@@ -114,7 +114,31 @@ app.post('/create-user', function (req, res) {//post request as get request is n
    
 });
 
-
+//Logging in as a user
+app.post('/login',function(req,res){
+   var username = req.body.username;
+   var password = req.body.password;
+   //Use SSH to IMAD terminal and running curl command to execute the query 
+   
+   pool.query('SELECT * FROM "user" username=$1',[username],function (err,result){
+       if (err){//if error occurs , send status 500 error mesaage
+           res.status(500).send(err.toString());
+       }
+       else {
+           if (result.rows.length === 0){
+               res.status(403).send('username/password is invalid');  //403--Forbidden Request
+           }
+           else {
+               //Match the password
+               var dbString = result.rows[0].password; 
+               var salt = dbString.split('$')[2]; //salt value is the third element in the array
+               var hashedPassword = hash(password,salt);
+               
+           res.send('Username succesfully created:' + username);
+       } 
+       }
+  });
+});
 
 
 
