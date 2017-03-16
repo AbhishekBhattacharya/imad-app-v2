@@ -101,7 +101,7 @@ app.post('/create-user', function (req, res) {//post request as get request is n
    var password = req.body.password;
    //Use SSH to IMAD terminal and running curl command to execute the query 
    
-   var salt = crypto.RandomBytes(128).toString('hex'); //salting 
+   var salt = crypto.randomBytes(128).toString('hex'); //salting 
    var dbString = hash(password,salt);  //hashed password
    pool.query('INSERT INTO "user" (username,password) VALUES ($1,$2)',[username,dbString] ,function (err,result){
        if (err){//if error occurs , send status 500 error mesaage
