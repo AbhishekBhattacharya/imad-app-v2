@@ -120,7 +120,7 @@ app.post('/login',function(req,res){
    var password = req.body.password;
    //Use SSH to IMAD terminal and running curl command to execute the query 
    
-   pool.query('SELECT * FROM "user" username=$1',[username],function (err,result){
+   pool.query('SELECT * FROM "user" WHERE username=$1',[username],function (err,result){
        if (err){//if error occurs , send status 500 error mesaage
            res.status(500).send(err.toString());
        }
