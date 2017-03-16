@@ -99,6 +99,7 @@ app.post('/create-user', function (req, res) {//post request as get request is n
    //{"username":"abhishekbhattacharya" , "password":"password"}
    var username = req.body.username;
    var password = req.body.password;
+   //Use SSH to IMAD terminal and running curl command to execute the query 
    
    var salt = crypto.RandomBytes(128).toString('hex'); //salting 
    var dbString = hash(password,salt);  //hashed password
