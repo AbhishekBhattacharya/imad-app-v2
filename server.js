@@ -20,7 +20,7 @@ var bodyParser = require('body-parser'); //for GETTING username, password as JSO
 
 var app = express();
 app.use(morgan('combined'));
-app.use(bodyparser.json()); //tell express to load JSON in req.body variable whenever see it
+app.use(bodyParser.json()); //tell express to load JSON in req.body variable whenever see it
 
 
 
