@@ -67,10 +67,10 @@ submit.onclick = function () {
              alert('Logged In Succesfully');
              
        }
-       else (request.status === 403){
+       else if(request.status === 403){
            alert('username/password is incorrect');
        }
-       else (request.status === 500){
+       else if (request.status === 500){
            alert('Something went wrong on the server');
        }
        
