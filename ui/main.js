@@ -85,7 +85,8 @@ submit.onclick = function () {
      //Submit names
     var username = document.getElementById('username').value;//extract username on click
     var password = document.getElementById('password').value;
-    var name = nameInput.value;  //extract the value from the input box
+    console.log(username);
+    console.log(password);
     request.open('POST',"http://abhishekbhattacharya.imad.hasura-app.io/submit-name?name=" + name,true);
     request.send(JSON.stringify({username:username , password:password}));
  
