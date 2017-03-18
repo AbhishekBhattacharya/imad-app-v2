@@ -23,35 +23,35 @@
 
 
 //Counter Code
-var button = document.getElementById('counter');
-button.onclick = function () {
+//var button = document.getElementById('counter');
+//button.onclick = function () {
   //Create a request object
-  var request = new XMLHttpRequest();
+ // var request = new XMLHttpRequest();
   
   //Capture the response and store it  in a variable\
-  request.onreadystatechange = function () {
-   if (request.readyState === XMLHttpRequest.DONE){
+  //request.onreadystatechange = function () {
+   //if (request.readyState === XMLHttpRequest.DONE){
        //Take some action
-       if (request.status === 200){ 
+     //  if (request.status === 200){ 
            //req succesfully completed, so extract the req
-           var counter = request.responseText;
-           var span = document.getElementById('count');
-           span.innerHTML = counter.toString();
+       //    var counter = request.responseText;
+         //  var span = document.getElementById('count');
+         //  span.innerHTML = counter.toString();
         
-       }
+//       }
        
-   }   
+ //  }   
    // if statement no executed i.e request not done
    
-  };
+//  };
  
  // Make the request
-    request.open('GET',"http://abhishekbhattacharya.imad.hasura-app.io/counter",true);
-    request.send(null);
+ //   request.open('GET',"http://abhishekbhattacharya.imad.hasura-app.io/counter",true);
+ //   request.send(null);
  
-};
+//};
 
-
+//Submit username/password to login
 var submit = document.getElementById('submit_btn');
 submit.onclick = function () {
   //Make  a request to the server and send the name
@@ -83,10 +83,11 @@ submit.onclick = function () {
  
      // Make the request
      //Submit names
-    var nameInput = document.getElementById('name');  //select input box
+    var username = document.getElementById('username').value;//extract username on click
+    var password = document.getElementById('password').value;
     var name = nameInput.value;  //extract the value from the input box
-    request.open('GET',"http://abhishekbhattacharya.imad.hasura-app.io/submit-name?name=" + name,true);
-    request.send(null);
+    request.open('POST',"http://abhishekbhattacharya.imad.hasura-app.io/submit-name?name=" + name,true);
+    request.send(JSON.stringify({username:username , password:password}));
  
   
   
