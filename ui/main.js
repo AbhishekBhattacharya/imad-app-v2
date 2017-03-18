@@ -63,23 +63,21 @@ submit.onclick = function () {
        //Take some action
        if (request.status === 200){ 
            //req succesfully completed, so extract the req
-           //Capture a list of names and render it as a list
-          var names = request.responseText; //its a string
-          names = JSON.parse(names); 
-          var list = '';  // convert list to an HTML string via loop
-          for (var i=0; i< names.length; i++){
-              list += '<li>' + names[i] + '</li>';
-          }
-          //Insert our HTML to the unordered list
-          var ul = document.getElementById('namelist');
-          ul.innerHTML = list;
-                
+             console.log('user logged in');
+             alert('Logged In Succesfully');
+             
+       }
+       else (request.status === 403){
+           alert('username/password is incorrect');
+       }
+       else (request.status === 500){
+           alert('Something went wrong on the server');
        }
        
    }   
-   // if statement no executed i.e request not done
+  }; 
    
-  };
+  
  
      // Make the request
      //Submit names
