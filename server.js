@@ -136,6 +136,9 @@ app.post('/login',function(req,res){
                if (hashedPassword === dbString){
                
                  res.send('Credentials are correct');  
+                 
+                 //Set a Session
+                 
        } else {
             res.status(403).send('username/password is invalid'); 
        }
