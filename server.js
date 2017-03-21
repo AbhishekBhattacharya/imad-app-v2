@@ -167,11 +167,15 @@ app.get('/check-login', function(req,res){
         res.send("You are logged in :" + req.session.auth.userId.toString());
     }
     else {
-        res.semd("You are not logged in!");
+        res.send("You are not logged in!");
     }
 });
 
-
+app.get('/logout', function(req,res){
+   delete req.session.auth; //deletes the auth object from the session object
+   res.send('Logged Out Succesfully!');
+   
+});
 
 // create the pool somewhere globally so its lifetime (for the database)
 // lasts for as long as your app is running
