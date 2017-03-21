@@ -161,7 +161,15 @@ app.post('/login',function(req,res){
   });
 });
 
-
+//Session Request 
+app.get('/check-login', function(req,res){
+    if(req.session && req.session.auth && req.session.auth.userId){
+        res.send("You are logged in :" + req.session.auth.userId.toString());
+    }
+    else {
+        res.semd("You are not logged in!");
+    }
+});
 
 
 
