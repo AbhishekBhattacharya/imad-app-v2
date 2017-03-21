@@ -5,6 +5,7 @@ var path = require('path');
 var Pool = require('pg').Pool; //DB Pool
 var crypto = require('crypto'); //Library of NodeJs For Hashing
 var bodyParser = require('body-parser'); //for GETTING username, password as JSON
+var session = require('express-session'); //Implement Sessions
 
  //DB Configuration
  var config = {
@@ -21,6 +22,11 @@ var bodyParser = require('body-parser'); //for GETTING username, password as JSO
 var app = express();
 app.use(morgan('combined'));
 app.use(bodyParser.json()); //tell express to load JSON in req.body variable whenever see it
+app.use(session({
+    secret :'someRandomSecretValue',
+    cookie :{ maxAge : 1000 * 60 * 60 * 24 * 30} 
+    
+}));//Two configurations in session library ,secret--encrypts cookies,cookie--sets duration of our cookie ,here: 1 month
 
 
 
