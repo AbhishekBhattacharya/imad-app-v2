@@ -141,9 +141,17 @@ app.post('/login',function(req,res){
                var hashedPassword = hash(password,salt); //Creating  a Hash based on the password submitted and the original salt
                if (hashedPassword === dbString){
                
+                 //Set a Session before the response is sent
+                 
+                 req.session.auth = {userId:result.rows[0].id}; 
+                 //Session middleware is  setting the cookie with a session id(All that the cookie contains is SessionId)
+                 // internally , on the server side , it maps the seesion id to an object
+                 // object -- auth = {{userId}}
+                 
+                 
                  res.send('Credentials are correct');  
                  
-                 //Set a Session
+                
                  
        } else {
             res.status(403).send('username/password is invalid'); 
