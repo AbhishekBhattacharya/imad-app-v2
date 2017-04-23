@@ -1,0 +1,6 @@
+server.js is the javascript running on the server.
+main.js is the javascript running on the client.
+in main.js we perform various actions like listening for a button click. Don't you think it will be efficient if we listen for the button click on the client itself and only request the server if need be because lots of buttons don't send a request to the server, for example if you have a button that alters only the ui without interacting with the server so it would be wise to do all this stuff on the client side itself.
+Also the server responds to many clients and if we leave everything for the server to do by itself then it may tend to get slow because of too much requests and traffic, And if there's one thing worse than no internet it's slow internet.
+
+
